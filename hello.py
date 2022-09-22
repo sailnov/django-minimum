@@ -1,4 +1,4 @@
-import sys
+import sys, os
 
 """
 Settings
@@ -22,7 +22,8 @@ Would normally go in app/views.py
 from django.http import HttpResponse
 
 def index(request):
-    return HttpResponse('Hello World')
+    instance_uid = os.environ.get('INSTANCE_ID')
+    return HttpResponse('Hello World. This Instance is:' + instance_uid)
 
 """
 URLs
